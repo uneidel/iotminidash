@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<div id="chart_div"></div>
+
+<script>
+
+    var data = [];
+    var chart;
+
+    google.charts.load('current', { packages: ['corechart', 'line'] });
+    google.charts.setOnLoadCallback(loadChart);
+
+    var hub = $.connection.ioTHub;
+    $.connection.hub.start();
+
+    hub.client.iotHubNotification = function (d) {
+        console.log(d);
+        var deviceMessage = JSON.parse(d);
+        var time = deviceMessage.Time;
+        var temp = deviceMessage.temperature;
+        var tparts = ((time.split("T"))[1]).split(":");
+        //2018 - 03 - 20T16: 04: 45.489729Z
+        data.addRows([[[parseInt(time[0]), parseInt(tparts[1]), parseInt(tparts[2])], temp]]);
+
+        var options = {
+            height: 250,
+            hAxis: {
+                title: 'Time'
+            },
+            vAxis: {
+                title: 'Temperature',
+                gridlines: { count: 22 } 
+            }
+        };
+
+        chart.draw(data, options);
+    };
+
+    function loadChart() {
+        data = new google.visualization.DataTable();
+        data.addColumn('timeofday', 'Time');
+        data.addColumn('number', 'Temperature');
+        
+
+        var options = {
+            height: 250,
+            hAxis: {
+                title: 'Time'
+            },
+            vAxis: {
+                title: 'Temperature',
+                gridlines: { count: 22 } 
+            }
+        };
+
+        chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+</script>
