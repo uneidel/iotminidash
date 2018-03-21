@@ -19,6 +19,7 @@
     hub.client.iotHubNotification = function (d) {
         console.log(d);
         var deviceMessage = JSON.parse(d);
+        var deviceId = deviceMessage.deviceId;
         var time = deviceMessage.Time;
         var temp = deviceMessage.temperature;
         var tparts = ((time.split("T"))[1]).split(":");

@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(IoTHubTempWebApp.Startup))]
-namespace IoTHubTempWebApp
+[assembly: OwinStartup(typeof(iotminidash.Startup))]
+namespace iotminidash
 {
     public class Startup
     {

@@ -1,4 +1,4 @@
-﻿using IoTHubTempWebApp.Hubs;
+﻿using iotminidash.Hubs;
 using Microsoft.AspNet.SignalR;
 using Microsoft.ServiceBus.Messaging;
 using System;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace IoTHubTempWebApp.Controllers
+namespace iotminidash.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.SignalR;
 
-namespace IoTHubTempWebApp.Hubs
+namespace iotminidash.Hubs
 {
     public class IoTHub : Hub
     {
