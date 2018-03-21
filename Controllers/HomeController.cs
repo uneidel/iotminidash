@@ -3,6 +3,7 @@ using Microsoft.AspNet.SignalR;
 using Microsoft.ServiceBus.Messaging;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace IoTHubTempWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private string connectionString = "Endpoint=sb://miotybus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=VSPngRu2xmUc8efY37MvMxPU1nldMGBMohNgJam7j04=";
+        private string connectionString = ConfigurationManager.AppSettings["queueconnstring"];
         private string queueName = "mioty";
         private IHubContext _hubContext;
 
