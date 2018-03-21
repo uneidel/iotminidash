@@ -101,7 +101,5 @@ C:\Users\uneidel\Desktop\Mioty\iotminidash\bin\System.Web.WebPages.Deployment.xm
 C:\Users\uneidel\Desktop\Mioty\iotminidash\bin\System.Web.WebPages.Razor.xml
 C:\Users\uneidel\Desktop\Mioty\iotminidash\bin\System.Web.Optimization.xml
 C:\Users\uneidel\Desktop\Mioty\iotminidash\obj\Debug\minidashboard.csprojResolveAssemblyReference.cache
-C:\Users\uneidel\Desktop\Mioty\iotminidash\obj\Debug\minidashboard.csproj.CoreCompileInputs.cache
-C:\Users\uneidel\Desktop\Mioty\iotminidash\obj\Debug\minidashboard.csproj.CopyComplete
 C:\Users\uneidel\Desktop\Mioty\iotminidash\obj\Debug\minidashboard.dll
 C:\Users\uneidel\Desktop\Mioty\iotminidash\obj\Debug\minidashboard.pdb
