@@ -3,6 +3,8 @@
 }
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
 <div id="chart_div"></div>
 
 <script>
@@ -20,10 +22,13 @@
         console.log(d);
         var deviceMessage = JSON.parse(d);
         var deviceId = deviceMessage.deviceId;
+        var strippedDeviceId = deviceId.replace("-", "");
         var time = deviceMessage.Time;
         var temp = deviceMessage.temperature;
         var tparts = ((time.split("T"))[1]).split(":");
-        //2018 - 03 - 20T16: 04: 45.489729Z
+        if ($("#chartslayer").find("chart_" + strippedDeviceId).length < 1) {
+            $("#chartslayer").append("<div id='chart_" + strippedDeviceId + "'></div>");
+        }
         data.addRows([[[parseInt(time[0]), parseInt(tparts[1]), parseInt(tparts[2])], temp]]);
 
         var options = {
@@ -40,7 +45,7 @@
         chart.draw(data, options);
     };
 
-    function loadChart() {
+    function loadChart(chartname) {
         data = new google.visualization.DataTable();
         data.addColumn('timeofday', 'Time');
         data.addColumn('number', 'Temperature');
@@ -57,7 +62,7 @@
             }
         };
 
-        chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart = new google.visualization.LineChart(document.getElementById("chart_div"));
         chart.draw(data, options);
     }
 </script>
