@@ -29,7 +29,7 @@ namespace iotminidash.Controllers
             Task task = Task.Run(() =>
             {
 
-                QueueClient client = QueueClient.CreateFromConnectionString(connectionString, queueName, ReceiveMode.ReceiveAndDelete);
+                QueueClient client = QueueClient.CreateFromConnectionString(connectionString, ReceiveMode.ReceiveAndDelete);
 
                 client.OnMessage(message =>
                 {
